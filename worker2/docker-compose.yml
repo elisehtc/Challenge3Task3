@@ -1,0 +1,11 @@
+version: '3'
+services:
+  app:
+    image: nginx
+    volumes:
+      - .:/usr/share/nginx/html/
+      - ./balancer/balancer.example.com.crt:/etc/balancer/balancer.example.com.crt
+      - ./balancer/balancerexample.com.key:/etc/balancer/balancer.example.com.key
+    expose:
+      - "8080:80"
+      - "443:443"
